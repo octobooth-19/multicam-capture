@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Camera · Multicam Capture</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="phone-shell">
+    <header class="topbar"><a class="brand" href="/">● <span>MULTICAM</span></a><span class="eyebrow">CAMERA MODE</span></header>
+    <p class="eyebrow accent phone-kicker">YOUR ANGLE MATTERS</p><h1>Set the<br><em>scene.</em></h1>
+    <p class="subtle">Get your camera ready, then control the take from your dashboard.</p>
+    <div class="phone-preview"><video id="preview" autoplay playsinline muted></video><span id="preview-label">YOUR PREVIEW</span></div>
+    <div id="status" class="status-banner" role="status"><span class="status-dot"></span><span>Set up your camera</span><strong id="phone-timer"></strong></div>
+    <div class="form-grid">
+      <label>CAMERA NAME<input id="name" maxlength="60" placeholder="e.g. Wide shot"></label>
+      <label>LENS<select id="lens"><option value="environment">Back camera</option><option value="user">Front camera</option></select></label>
+      <label>RESOLUTION<select id="resolution"><option value="720">720p</option><option value="1080" selected>1080p</option><option value="2160">4K</option></select></label>
+    </div>
+    <button id="connect" class="primary-button">Connect camera <span>→</span></button>
+    <button id="retry" class="secondary-button hidden">Retry upload</button>
+    <p id="error" class="message" role="alert"></p>
+    <p class="fine phone-note">Keep this page open and your phone awake while recording and uploading.</p>
+  </main>
+  <script src="/common.js"></script><script src="/camera.js"></script>
+</body>
+</html>

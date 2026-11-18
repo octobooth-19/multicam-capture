@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multicam Capture</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><a class="brand" href="/">● <span>MULTICAM</span></a><span class="eyebrow">CAPTURE STUDIO</span><span id="connection" class="connection">Connecting</span></header>
+    <section class="hero">
+      <div><p class="eyebrow accent">YOUR MULTI-ANGLE STUDIO</p><h1>One moment.<br><em>Every angle.</em></h1><p class="subtle">Turn your phones into a synchronized camera crew.</p></div>
+      <div class="join-card"><div class="join-icon">↗</div><div><p class="eyebrow">ADD A CAMERA</p><p>Open this link on each phone:</p><a id="join-url" class="join-url" href="/camera">Loading…</a><p class="fine">Same Wi-Fi · Accept the certificate warning</p></div></div>
+    </section>
+    <section class="section-head"><div><p class="eyebrow accent">LIVE FEEDS</p><h2>Your cameras <span id="camera-count" class="count">0</span></h2></div><span class="fine">PREVIEW ONLY · ORIGINALS SAVED ON STOP</span></section>
+    <div id="cameras" class="camera-grid"></div>
+    <div id="empty" class="empty"><div class="empty-icon">◉</div><h3>Your set is ready</h3><p>Join from a phone to add your first camera.</p></div>
+    <section class="control-bar"><div class="take-field"><label for="take-name">TAKE NAME</label><input id="take-name" maxlength="60" placeholder="Untitled take"></div><div class="record-actions"><span id="timer" class="timer">00:00</span><button id="record" class="record-button" disabled><span class="record-dot"></span><span>Record</span></button></div></section>
+    <p id="message" class="message" role="status"></p>
+    <section class="takes-section"><div class="section-head"><div><p class="eyebrow accent">YOUR LIBRARY</p><h2>Recent takes</h2></div><span class="fine">STORED ON THIS COMPUTER</span></div><div id="takes" class="takes"></div></section>
+    <footer>BUILT FOR THE MOMENTS WORTH KEEPING <span>● MULTICAM</span></footer>
+  </main>
+  <script src="/common.js"></script><script src="/dashboard.js"></script>
+</body>
+</html>

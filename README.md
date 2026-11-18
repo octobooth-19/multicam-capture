@@ -4,12 +4,50 @@ Record a scene from multiple phone cameras, preview every angle on a laptop, and
 
 ## Run
 
-1. Install Node.js (v18 or newer) and ensure `/usr/bin/openssl` is available. Run `npm start` in this folder.
-2. Open the dashboard URL printed in the terminal. Open the printed phone join URL on each phone on the **same Wi-Fi**.
-3. Accept the self-signed certificate warning on every device. On iOS, use Safari; on Android, use Chrome. Allow camera and microphone access.
-4. Name each angle, choose the lens and desired resolution, and tap **Connect camera**. Choose a take name on the dashboard and press **Record**, then **Stop recording**. Keep the phone pages open while they upload. Play or download each angle from Recent takes.
+### Before you start
 
-The server creates `.cert/` on first run, with localhost and the detected LAN IPv4 address in the certificate's subject alternative names. It regenerates the certificate if the address changes or it expires. If the printed address is not reachable, check the laptop's network interface and firewall. Set `PORT` to change the default 8443 port. Guest, corporate, and other client-isolated networks can block the connections. A browser may require installing/trusting the certificate on the device rather than merely accepting the warning.
+On the computer that will run the dashboard, install Node.js v18 or newer and make sure OpenSSL is available at `/usr/bin/openssl`. You can check with `node --version` and `/usr/bin/openssl version` in a terminal. No `npm install` is needed.
+
+### Start the app
+
+1. Open a terminal and clone the app branch, then enter the folder:
+
+   ```sh
+   git clone --branch octobooth-19-multicam-capture-app https://github.com/octobooth-19/multicam-capture.git
+   cd multicam-capture
+   ```
+
+2. Start the server:
+
+   ```sh
+   npm start
+   ```
+
+   Leave this terminal open while using the app. On first run, the server generates a self-signed HTTPS certificate in `.cert/`. The terminal prints a **Dashboard** URL and a **Phone join URL**, for example:
+
+   ```text
+   Dashboard: https://localhost:8443/
+   Phone join URL: https://192.168.1.10:8443/camera
+   ```
+
+   Your phone URL will contain your computer's detected LAN address.
+
+3. Open the printed dashboard URL in a browser on the computer. Accept the self-signed certificate warning if prompted.
+4. Connect each phone to the **same Wi-Fi** as the computer. On each phone, open the printed phone join URL (not the `localhost` dashboard URL). Use Safari on iOS or Chrome on Android.
+5. Accept the self-signed certificate warning on each phone. Some devices may require you to install and trust the certificate instead of simply accepting the warning. Allow camera and microphone access when prompted.
+6. On each phone, enter a camera name, choose the front or back lens and a resolution, and tap **Connect camera**. The dashboard shows each connected camera's live preview.
+7. Enter a take name on the dashboard and click **Record**. Click **Stop recording** when finished. Keep the phone pages open while the videos upload.
+8. Play or download each angle from **Recent takes** on the dashboard. The original video files and `take.json` are saved on the computer in `recordings/<take-id>/`.
+
+To stop the server, press **Ctrl+C** in its terminal.
+
+### Troubleshooting
+
+- **A phone cannot reach the join URL:** check that both devices are on the same Wi-Fi, that the printed LAN address is reachable, and that the computer's firewall allows the connection. Guest and corporate networks may isolate devices from one another.
+- **Camera access is blocked:** use the HTTPS phone join URL, accept or trust its certificate, and allow camera and microphone access in the browser and device settings.
+- **Port 8443 is unavailable:** start the server with another port, for example `PORT=8444 npm start`, and use the newly printed URLs.
+
+The certificate includes localhost and the detected LAN IPv4 address. The server regenerates it if the address changes or the certificate expires.
 
 ## How it works
 

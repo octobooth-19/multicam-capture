@@ -62,3 +62,10 @@ After stop, each phone uploads in 1 MiB chunks with automatic retries; use **Ret
 ## Development
 
 Run `node --test` for the built-in Node.js tests. Source layout: `server.js` serves HTTPS, signaling, and storage; `public/` contains the dashboard, camera page, and shared styles/scripts; `test/` contains integration tests.
+# Spiky
+
+Spiky is a multi-cam capture system that can run on your local system
+
+# Author
+Name: Khalid Talakshi
+GH Handle: @khalid.talakshi

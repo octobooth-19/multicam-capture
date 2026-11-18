@@ -1,6 +1,6 @@
-# Multicam Capture
+# Spiky
 
-Record a scene from multiple phone cameras, preview every angle on a laptop, and save the original videos locally. No packages or external services are required.
+Spiky is a multi-cam capture system that can run on your local system. Record a scene from multiple phone cameras, preview every angle on a laptop, and save the original videos locally. No packages or external services are required.
 
 ## Run
 
@@ -10,10 +10,10 @@ On the computer that will run the dashboard, install Node.js v18 or newer and ma
 
 ### Start the app
 
-1. Open a terminal and clone the app branch, then enter the folder:
+1. Clone the repository and enter the app folder, or open a terminal in an existing checkout containing `server.js` and `package.json`:
 
    ```sh
-   git clone --branch octobooth-19-multicam-capture-app https://github.com/octobooth-19/multicam-capture.git
+   git clone https://github.com/octobooth-19/multicam-capture.git
    cd multicam-capture
    ```
 
@@ -33,9 +33,9 @@ On the computer that will run the dashboard, install Node.js v18 or newer and ma
    Your phone URL will contain your computer's detected LAN address.
 
 3. Open the printed dashboard URL in a browser on the computer. Accept the self-signed certificate warning if prompted.
-4. Connect each phone to the **same Wi-Fi** as the computer. On each phone, open the printed phone join URL (not the `localhost` dashboard URL). Use Safari on iOS or Chrome on Android.
+4. Connect each phone to the **same Wi-Fi** as the computer. Expand **Add camera** at the top of the dashboard to find the phone join URL, or use the URL printed in the terminal. Open it on each phone (not the `localhost` dashboard URL). Use Safari on iOS or Chrome on Android.
 5. Accept the self-signed certificate warning on each phone. Some devices may require you to install and trust the certificate instead of simply accepting the warning. Allow camera and microphone access when prompted.
-6. On each phone, enter a camera name, choose the front or back lens and a resolution, and tap **Connect camera**. The dashboard shows each connected camera's live preview.
+6. On each phone, enter a camera name. The defaults are the back camera and 1080p; expand **Camera settings** to change the lens or resolution before connecting. Tap **Connect camera**. The dashboard shows each connected camera's live preview.
 7. Enter a take name on the dashboard and click **Record**. Click **Stop recording** when finished. Keep the phone pages open while the videos upload.
 8. Play or download each angle from **Recent takes** on the dashboard. The original video files and `take.json` are saved on the computer in `recordings/<take-id>/`.
 
@@ -62,10 +62,8 @@ After stop, each phone uploads in 1 MiB chunks with automatic retries; use **Ret
 ## Development
 
 Run `node --test` for the built-in Node.js tests. Source layout: `server.js` serves HTTPS, signaling, and storage; `public/` contains the dashboard, camera page, and shared styles/scripts; `test/` contains integration tests.
-# Spiky
 
-Spiky is a multi-cam capture system that can run on your local system
+## Author
 
-# Author
 Name: Khalid Talakshi
 GH Handle: @khalid.talakshi
